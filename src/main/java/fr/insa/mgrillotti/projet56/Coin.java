@@ -9,7 +9,7 @@ package fr.insa.mgrillotti.projet56;
  * @author Amadou Coulibaly
  */
 public class Coin {
-
+// test
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
