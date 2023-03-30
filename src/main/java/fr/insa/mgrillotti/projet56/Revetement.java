@@ -11,12 +11,14 @@ package fr.insa.mgrillotti.projet56;
 public class Revetement {
     // Attributs
     int idRevetement;
-    double prix;
+    String designation;
+    boolean pourMur, pourSol, pourPlafond,;
+    double prixUnitaire;
     
     Revetement(int id, double p)
     {
         // Constructeurs
         this.idRevetement=id;
-        this.prix=p;
+        this.prixUnitaire=p;
     }
 }
