@@ -3,13 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package fr.insa.mgrillotti.projet56;
-import java.util.ArrayList;
+
 /**
  *
- * @author lgoubet01
+ * @author mgrillotti01
  */
-public class Piece {
+class Immeuble extends Batiment{
     
-    int idPiece, sol, plafond;
-    ArrayList<Mur> listeMurs = new ArrayList<>();
 }

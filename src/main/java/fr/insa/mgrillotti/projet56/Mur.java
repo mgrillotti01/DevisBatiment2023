@@ -3,14 +3,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package fr.insa.mgrillotti.projet56;
-
+import java.util.ArrayList;
 /**
  *
  * @author Amadou Coulibaly
  */
 public class Mur {
-    int idMur;
+    int idMur, nbrePortes, nbreFenetres;
     Coin debut, fin;
+    ArrayList<Revetement> listeRevetement = new ArrayList<>();
     
     
     
