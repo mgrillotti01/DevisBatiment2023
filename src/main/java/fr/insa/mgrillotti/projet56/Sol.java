@@ -6,10 +6,11 @@ package fr.insa.mgrillotti.projet56;
 import java.util.ArrayList;
 /**
  *
- * @author lgoubet01
+ * @author mgrillotti01
  */
-public class Piece {
-    //Attributs
-    int idPiece, sol, plafond;
-    ArrayList<Mur> listeMurs = new ArrayList<>();
+public class Sol {
+    
+    int idSol;
+    ArrayList<Coin> listeCoins = new ArrayList<>();
+    ArrayList<Revetement> listeRevetements = new ArrayList<>();
 }
