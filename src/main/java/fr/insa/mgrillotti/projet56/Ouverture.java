@@ -20,20 +20,6 @@ public abstract class Ouverture {
         this.dimX = dimX;
         this.dimY = dimY;
         
-        /*ArrayList<Ouverture> listeOuvertures = new ArrayList<>();
-        
-        Fenetre fenetre = new Fenetre(idOuverture, dimX, dimY);
-        Porte porte = new Porte(idOuverture, dimX, dimY);
-    //    Tremie tremie = new Tremie(idOuverture, dimX, dimY);
-
-        listeOuvertures.add(fenetre);
-        listeOuvertures.add(porte);
-    //    listeOuvertures.add(tremie);
-        
-        for (Ouverture o : listeOuvertures) {
-            System.out.println(o.toString());
-            o.afficher();
-        }*/
     }
 
     public double surface() {
