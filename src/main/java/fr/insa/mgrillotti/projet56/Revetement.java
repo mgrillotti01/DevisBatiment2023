@@ -12,7 +12,7 @@ public class Revetement {
     // Attributs
     int idRevetement;
     String designation;
-    boolean pourMur, pourSol, pourPlafond,;
+    boolean pourMur, pourSol, pourPlafond;
     double prixUnitaire;
     
     Revetement(int id, double p)

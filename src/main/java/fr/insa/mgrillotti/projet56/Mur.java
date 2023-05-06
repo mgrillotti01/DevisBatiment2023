@@ -41,7 +41,7 @@ public class Mur {
     }
     @Override
     public String toString() {
-        return "Mur{" + "idMur=" + idMur + ", debut=" + debut + ", fin=" + fin + '}';
+        return "Mur{" + "idMur=" + idMur + ", nbrePortes=" + nbrePortes + ", nbreFenetres=" + nbreFenetres + ", debut=" + debut + ", fin=" + fin + ", listeRevetement=" + listeRevetement + '}';
     }
     
 }

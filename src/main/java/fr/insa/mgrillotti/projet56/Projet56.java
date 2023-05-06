@@ -4,7 +4,7 @@
  */
 
 package fr.insa.mgrillotti.projet56;
-
+//import java.util.ArrayList;
 /**
  *
  * @author mgrillotti01
@@ -20,6 +20,11 @@ public class Projet56 {
         System.out.println(" Ordonnée du Coin");
         double y=Lire.d();
         c1=new Coin(id,x,y);
+        //Collection <Coin> listeCoins = new ArrayList<>();
+        //Numeroteur numeroteur = new Numeroteur(listeCoins);
+        //Piece p;
+        //ArrayList<Mur> listeMurs = new ArrayList<Mur>();
+        //p = new Piece(1,2,4,listeMurs);
         
         // Pour afficher textuellement le coin c1
         c1.afficher();
@@ -64,8 +69,8 @@ public class Projet56 {
          id=Lire.i();
          
          System.out.println("Prix unitaire du revêtement");
-         double p=Lire.d();
-         r=new Revetement(id,p);
+         double prix=Lire.d();
+         r=new Revetement(id,prix);
          double montantRevetement=calculMontantRevetement(m1,r);
          System.out.format("\nSurface :%.2f",montantRevetement);
     } // Fin de la méthode main
@@ -73,6 +78,6 @@ public class Projet56 {
     
          static double calculMontantRevetement(Mur m1, Revetement r)
          {
-             return (m1.surface()* r.prix);
+             return (m1.surface()* r.prixUnitaire);
          }
     }

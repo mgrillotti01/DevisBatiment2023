@@ -11,5 +11,14 @@ import java.util.ArrayList;
 public class Piece {
     //Attributs
     int idPiece, sol, plafond;
-    ArrayList<Mur> listeMurs = new ArrayList<>();
+    ArrayList<Mur> listeMurs;
+
+    public Piece(int idPiece, int sol, int plafond, ArrayList<Mur> listeMurs) {
+        this.idPiece = idPiece;
+        this.sol = sol;
+        this.plafond = plafond;
+        this.listeMurs = listeMurs;
+    }
+    
+    
 }
