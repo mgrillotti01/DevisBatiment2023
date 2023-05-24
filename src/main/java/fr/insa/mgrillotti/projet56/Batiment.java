@@ -10,6 +10,19 @@ import java.util.ArrayList;
  */
 public class Batiment {
     
-    String idBatiment;
-    ArrayList<Niveau> listeNiveaux = new ArrayList<>();
+    protected String idBatiment;
+    protected ArrayList<Niveau> listeNiveaux = new ArrayList<>();
+    
+    public Batiment(String id){
+        this.idBatiment = id;
+        this.listeNiveaux = null;
+    }
+    public Batiment(String id, ArrayList<Niveau> listeNiveau){
+        
+        this.idBatiment = id;
+        this.listeNiveaux = listeNiveau;
+        
+    }
+    public void addNiveau(Niveau niv){}
+    
 }

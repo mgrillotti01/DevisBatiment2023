@@ -10,7 +10,40 @@ import java.util.ArrayList;
  */
 public class Appartement {
     
-    int idAppartement;
-    int niveauAppartement;
-    ArrayList<Piece> listePieces = new ArrayList<>();
+    /**
+     * @return the idAppartement
+     */
+    public int getIdAppartement() {
+        return idAppartement;
+    }
+
+    /**
+     * @return the niveauAppartement
+     */
+    public int getNiveauAppartement() {
+        return niveauAppartement;
+    }
+
+    /**
+     * @return the listePieces
+     */
+    public ArrayList<Piece> getListePieces() {
+        return listePieces;
+    }
+    
+    private int idAppartement;
+    private int niveauAppartement;
+    private ArrayList<Piece> listePieces = new ArrayList<>();
+    
+    public Appartement(int id, int niveau, ArrayList<Piece> liste){
+        
+        this.idAppartement = id;
+        this.niveauAppartement = niveau;
+        this.listePieces = liste;
+        
+    }
+    
+    public void addMur(Piece piece){
+        this.listePieces.add(piece.getIdPiece(), piece);
+    }
 }

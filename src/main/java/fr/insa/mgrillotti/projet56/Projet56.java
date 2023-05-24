@@ -4,12 +4,75 @@
  */
 
 package fr.insa.mgrillotti.projet56;
-
+//import java.util.ArrayList;
 /**
  *
  * @author mgrillotti01
  */
 public class Projet56 {
+    
+    public static void Menu(){
+        Numeroteur num = new Numeroteur();
+        System.out.println("Souhaitez-vous calculer le devis d'un Immeuble ou d'une Maison ?");
+        String bat = Lire.S();
+        if (! bat.equals("Maison") && (! bat.equals("maison"))){
+            Batiment batiment = new Immeuble(bat);
+        }else{
+            Batiment batiment = new Maison(bat);
+        }
+        int selection = 0;
+        while (selection != -1){
+            System.out.println("Devis du Batiment");
+            System.out.println("----------------------------------");
+            System.out.println("0) Interface graphique");
+            System.out.println("1) Créer un point");
+            System.out.println("2) Supprimer un point");
+            System.out.println("3) Créer un mur");
+            System.out.println("4) Supprimer un mur");
+            System.out.println("4) Ajouter un revêtement");
+            System.out.println("5) Enlever un revêtement");
+            System.out.println("6) Créer un sol");
+            System.out.println("7) Supprimer un sol");
+            System.out.println("8) Ajouter un revêtement");
+            System.out.println("9) Enlever un revêtement");
+            System.out.println("10) Créer un sol");
+            System.out.println("11) Supprimer un sol");
+            System.out.println("12) Ajouter un revêtement");
+            System.out.println("13) Enlever un revêtement");
+            System.out.println("14) Créer un plafond");
+            System.out.println("15) Supprimer un plafond");
+            System.out.println("16) Ajouter un revêtement");
+            System.out.println("17) Enlever un revêtement");
+            System.out.println("18) Créer une pièce");
+            System.out.println("19) Supprimer une pièce");
+            System.out.println("20) Ajouter un mur à une pièce");
+            System.out.println("21) Enlever un mur à une pièce");
+            if (! bat.equals("Maison") && (! bat.equals("maison"))){
+                System.out.println("22) Créer un appartement");
+                System.out.println("23) Supprimer un appartement");
+                System.out.println("24) Ajouter une pièce à un appartement");
+                System.out.println("25) Enlever une pièce à un appartement");
+                System.out.println("26) Créer un niveau");
+                System.out.println("27) Supprimer un niveau");
+                System.out.println("28) Ajouter un appartement à un niveau");
+                System.out.println("29) Enlever un appartement à un niveau");
+            }
+            System.out.println("30) Calculer le devis du batiment");
+            System.out.println("-1) Quitter");
+            System.out.println("votre choix : ");
+            selection = Lire.i();
+            if (selection == 1){
+                System.out.println("identifiant du point:");
+                int id = Lire.i();
+                System.out.println("abscisse");
+                double x = Lire.d();
+                System.out.println("ordonnée");
+                double y = Lire.d();
+                Coin c = new Coin(id,x,y);
+                num.getOrAdd(c);
+            }
+        }
+    }
 
     public static void main(String[] args) {
         Coin c1;
@@ -20,6 +83,11 @@ public class Projet56 {
         System.out.println(" Ordonnée du Coin");
         double y=Lire.d();
         c1=new Coin(id,x,y);
+        //Collection <Coin> listeCoins = new ArrayList<>();
+        //Numeroteur numeroteur = new Numeroteur(listeCoins);
+        //Piece p;
+        //ArrayList<Mur> listeMurs = new ArrayList<Mur>();
+        //p = new Piece(1,2,4,listeMurs);
         
         // Pour afficher textuellement le coin c1
         c1.afficher();
@@ -64,8 +132,8 @@ public class Projet56 {
          id=Lire.i();
          
          System.out.println("Prix unitaire du revêtement");
-         double p=Lire.d();
-         r=new Revetement(id,p);
+         double prix=Lire.d();
+         r=new Revetement(id);
          double montantRevetement=calculMontantRevetement(m1,r);
          System.out.format("\nSurface :%.2f",montantRevetement);
     } // Fin de la méthode main
@@ -73,6 +141,6 @@ public class Projet56 {
     
          static double calculMontantRevetement(Mur m1, Revetement r)
          {
-             return (m1.surface()* r.prix);
+             return (m1.surface()* r.prixUnitaire);
          }
     }

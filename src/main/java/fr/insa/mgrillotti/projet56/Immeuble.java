@@ -10,4 +10,16 @@ package fr.insa.mgrillotti.projet56;
  */
 class Immeuble extends Batiment{
     
+    public Immeuble(String identifiant){
+        
+        super(identifiant,null);
+        
+    }
+    @Override
+    public void addNiveau(Niveau niv){
+        this.listeNiveaux.add(niv);
+    }
+    public void deleteNiveau(Niveau niv){
+        this.listeNiveaux.remove(niv);
+    }
 }
