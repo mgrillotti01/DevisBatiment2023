@@ -11,15 +11,21 @@ import java.util.ArrayList;
  */
 public class Sol {
     
-    Color couleur = Color.BLACK;
-    int idSol;
-    ArrayList<Coin> listeCoins = new ArrayList<>();
-    ArrayList<Revetement> listeRevetements = new ArrayList<>();
+    private Color couleur = Color.BLACK;
+    private int idSol;
+    private Revetement revetement;
+    private ArrayList<Coin> listeCoins = new ArrayList<>();
+    private ArrayList<Ouverture> listeOuvertures = new ArrayList<>();
     
-    Sol(int id, ArrayList<Coin> list){
+    Sol(int id, ArrayList<Coin> list, Revetement revetement){
         this.idSol=id;
         this.listeCoins.addAll(list);
-        //this.listeRevetements.addAll(listRev);
+        this.revetement=revetement;
+        
+        System.out.println(" Identifiant de la Tremie");
+        int idTremie=Lire.i();
+        Tremie tremie = new Tremie (idTremie);
+        listeOuvertures.add(tremie);
     }
     
     void afficher()
@@ -32,56 +38,43 @@ public class Sol {
     
     double longueur(Coin e, Coin c)
     {
-        return(Math.sqrt((e.getCx()-c.getCx())*(e.getCx()-c.getCx()) + (e.getCy()-c.getCy())*(e.getCy()-c.getCy())));
+        return(Math.sqrt((e.getX()-c.getX())*(e.getX()-c.getX()) + (e.getY()-c.getY())*(e.getY()-c.getY())));
     }
     
     double surface()
-    {
-        return(longueur(this.listeCoins.get(1),this.listeCoins.get(3))*longueur(this.listeCoins.get(2),this.listeCoins.get(3)));
+        {
+        double surfaceSol = (longueur(this.listeCoins.get(1),this.listeCoins.get(2))*longueur(this.listeCoins.get(2),this.listeCoins.get(3)));
+        for (Ouverture ouverture: listeOuvertures){
+            surfaceSol = surfaceSol - ouverture.surface();
+        }
+        return surfaceSol;
     }
-    
     @Override
     public String toString() {
-        return "Sol{" + "idSol=" + idSol + ", listeCoins=" + listeCoins + ", listeRevetements"+ listeRevetements + '}';
+        return "Sol{" + "idSol=" + idSol + ", listeCoins=" + listeCoins + ", Revetement="+ revetement + '}';
     }
     
     public double maxX(){
-        double max = this.listeCoins.get(0).getCx();
-        for (Coin c : this.listeCoins){
-            if (c.getCx() > max){
-                max = c.getCx();
-            }
-        }
-        return max;
+        //fonctionne parce que la liste est ordonnée; (coinBG, coinHG, coinHD, coinBD)
+        return this.listeCoins.get(2).getX();
     }
     
     public double minX(){
-        double min = this.listeCoins.get(0).getCx();
-        for (Coin c : this.listeCoins){
-            if (c.getCx() < min){
-                min = c.getCx();
-            }
-        }
-        return min;
+        //fonctionne parce que la liste est ordonnée; (coinBG, coinHG, coinHD, coinBD)
+        return this.listeCoins.get(0).getX();
     }
     
     public double maxY(){
-        double max = this.listeCoins.get(0).getCy();
-        for (Coin c : this.listeCoins){
-            if (c.getCy() > max){
-                max = c.getCy();
-            }
-        }
-        return max;
+        //fonctionne parce que la liste est ordonnée; (coinBG, coinHG, coinHD, coinBD)
+        return this.listeCoins.get(2).getY();
     }
     
     public double minY(){
-        double min = this.listeCoins.get(0).getCy();
-        for (Coin c : this.listeCoins){
-            if (c.getCy() > min){
-                min = c.getCy();
-            }
-        }
-        return min;
+        //fonctionne parce que la liste est ordonnée; (coinBG, coinHG, coinHD, coinBD)
+        return this.listeCoins.get(0).getY();
+    }
+    
+    public Revetement getRevetement(){
+        return this.revetement;
     }
 }
