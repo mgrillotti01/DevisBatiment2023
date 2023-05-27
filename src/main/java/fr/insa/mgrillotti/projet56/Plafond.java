@@ -12,13 +12,13 @@ public class Plafond {
     
     int idPlafond;
     ArrayList<Coin> listeCoins = new ArrayList<>();
-    ArrayList<Revetement> listeRevetements = new ArrayList<>();
+    Revetement revetement;
     
-    Plafond(int id, ArrayList<Coin> liste, ArrayList<Revetement> listeRev)
+    Plafond(int id, ArrayList<Coin> listeCoins, Revetement revetement)
     {
         this.idPlafond=id;
-        this.listeCoins.addAll(liste);
-        this.listeRevetements.addAll(listeRev);
+        this.listeCoins.addAll(listeCoins);
+        this.revetement=revetement;
     }
     
     double longueur(Coin e, Coin c)
@@ -33,6 +33,10 @@ public class Plafond {
     
     @Override
     public String toString() {
-        return "Sol{" + "idPlafond=" + idPlafond + ", listeCoins=" + listeCoins + ", listeRevetements"+ listeRevetements + '}';
+        return "Sol{" + "idPlafond=" + idPlafond + ", listeCoins=" + listeCoins + ", Revetement="+ revetement + '}';
+    }
+    
+    public Revetement getRevetement(){
+        return this.revetement;
     }
 }

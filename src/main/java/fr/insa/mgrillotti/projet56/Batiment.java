@@ -8,8 +8,27 @@ import java.util.ArrayList;
  *
  * @author mgrillotti01
  */
-public class Batiment {
+public abstract class Batiment {
     
-    String idBatiment;
-    ArrayList<Niveau> listeNiveaux = new ArrayList<>();
+    int idBatiment;
+    
+    Batiment(int id){
+        this.idBatiment = id;
+   
+    }
+    
+    public abstract double surfaceTotale();   
+    
+    public double surfaceRevetement(){
+        return 0.0;
+    }
+    
+    public abstract void addPiece(
+        int idPiece, 
+        Coin coinBG,
+        double longueurX,
+        double longueurY,
+        ArrayList<Revetement> listeRevetements
+    );
+  
 }

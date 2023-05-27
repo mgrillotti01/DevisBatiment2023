@@ -36,5 +36,18 @@ public class Coin {
     {
         System.out.println(" Coin : id ="+this.idCoin+" abscisse = "+this.cx+ " Ordonnée ="+this.cy);
     }
-            
+    
+    int getID() {//récupérer id coin
+        return this.idCoin;    
+    }
+    
+    double getX() {//récupérer X coin
+        return this.cx;    
+    }
+    
+    double getY() {//récupérer Y coin
+        return this.cy;    
+    }
+    
+    
 }
