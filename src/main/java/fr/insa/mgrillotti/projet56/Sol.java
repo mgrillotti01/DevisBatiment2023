@@ -32,7 +32,7 @@ public class Sol {
     {System.out.println("==== Sol =====");
     int i;
         for (i=0;i<4;i++)  {
-            this.listeCoins.get(i).afficher();
+            this.getListeCoins().get(i).afficher();
         }
     }
     
@@ -43,39 +43,47 @@ public class Sol {
     
     double surface()
         {
-        double surfaceSol = (longueur(this.listeCoins.get(1),this.listeCoins.get(2))*longueur(this.listeCoins.get(2),this.listeCoins.get(3)));
+        double surfaceSol = (longueur(this.getListeCoins().get(1),this.getListeCoins().get(2))*longueur(this.getListeCoins().get(2),this.getListeCoins().get(3)));
         for (Ouverture ouverture: listeOuvertures){
             surfaceSol = surfaceSol - ouverture.surface();
         }
         return surfaceSol;
     }
+    
     @Override
     public String toString() {
-        return "Sol{" + "idSol=" + idSol + ", listeCoins=" + listeCoins + ", Revetement="+ revetement + '}';
+        return "Sol{" + "idSol=" + getIdSol() + ", listeCoins=" + getListeCoins() + ", Revetement="+ getRevetement() + '}';
     }
     
     public double maxX(){
         //fonctionne parce que la liste est ordonnée; (coinBG, coinHG, coinHD, coinBD)
-        return this.listeCoins.get(2).getX();
+        return this.getListeCoins().get(2).getX();
     }
     
     public double minX(){
         //fonctionne parce que la liste est ordonnée; (coinBG, coinHG, coinHD, coinBD)
-        return this.listeCoins.get(0).getX();
+        return this.getListeCoins().get(0).getX();
     }
     
     public double maxY(){
         //fonctionne parce que la liste est ordonnée; (coinBG, coinHG, coinHD, coinBD)
-        return this.listeCoins.get(2).getY();
+        return this.getListeCoins().get(2).getY();
     }
     
     public double minY(){
         //fonctionne parce que la liste est ordonnée; (coinBG, coinHG, coinHD, coinBD)
-        return this.listeCoins.get(0).getY();
+        return this.getListeCoins().get(0).getY();
     }
     
     public Revetement getRevetement(){
         return this.revetement;
     }
+    
+    public ArrayList<Coin> getListeCoins() {
+        return listeCoins;
+    }
+    
+    public int getIdSol() {
+        return idSol;
+    }
 }
-
