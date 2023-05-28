@@ -14,31 +14,24 @@ public class Appartement {
     private ArrayList<Piece> listePieces = new ArrayList<>();
     
     public Appartement (int id, double hsp){
-        this.idAppartement = id;
-                
-        /*System.out.println(" Identifiant de la Piece");
-        int idPiece=Lire.i();
-        System.out.println(" Identifiant du Coin (en bas à gauche)");
-        int idCoinBG=Lire.i();
-        System.out.println(" Abscisse du Coin");
-        double x=Lire.d();
-        System.out.println(" Ordonnée du Coin"); 
-        double y=Lire.d();
-        Coin coinBG = new Coin(idCoinBG, x, y);
-        System.out.println(" Longueur de la pièce en X");
-        double longueurX=Lire.i();
-        System.out.println(" Longueur de la pièce en Y");
-        double longueurY=Lire.i();
-        Piece piece = new Piece (idPiece, coinBG, longueurX, longueurY, hsp);
-        this.listePieces.add(piece);*/
-        //A FAIRE : BOUCLE POUR RAJOUTER PLUSIEURS PIECES
-        
+        this.idAppartement = id;  
     }
     
+    /**
+    * @return the idAppartement
+    */
     public int getIdAppartement() {
         return idAppartement;
     }
     
+    //C'est déjà fait par la fonction getNiveau de Immeuble
+    /*public int getNiveauAppartement() {
+        return niveauAppartement;
+    }*/
+    
+    /**
+     * @return the listePieces
+     */
     public ArrayList<Piece> getListePieces() {
         return listePieces;
     }
@@ -80,5 +73,9 @@ public class Appartement {
             surface = surface + piece.surfaceRevetement(idRevetement, hauteurSousPlafond);
         }
         return surface;
+    }
+    
+    public void addMur(Piece piece){
+        this.listePieces.add(piece.getIdPiece(), piece);
     }
 }
