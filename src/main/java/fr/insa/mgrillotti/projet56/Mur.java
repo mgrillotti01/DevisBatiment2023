@@ -19,7 +19,7 @@ public class Mur {
     
     
     
-    Mur(int id, Coin dc, Coin fc, double hsp, Revetement revetement){
+    Mur(int id, Coin dc, Coin fc, double hsp, Revetement revetement ){
         this.idMur=id;
         this.debut=dc;
         this.fin=fc;
@@ -49,7 +49,7 @@ public class Mur {
     
     double longueur()
     {
-        return(Math.sqrt((this.fin.cx-this.debut.cx)*(this.fin.cx-this.debut.cx) + (this.fin.cy-this.debut.cy)*(this.fin.cy-this.debut.cy)));
+        return(Math.sqrt((this.getFin().getX()-this.getDebut().getX())*(this.getFin().getX()-this.getDebut().getX()) + (this.getFin().getY()-this.getDebut().getY())*(this.getFin().getY()-this.getDebut().getY())));
     }
     
     double surface(double hauteurSousPlafond){
@@ -65,19 +65,19 @@ public class Mur {
     }
     
     public double maxX(){
-        return Math.max(this.debut.getX(), this.fin.getX());
+        return Math.max(this.getDebut().getX(), this.getFin().getX());
     }
     
     public double minX(){
-        return Math.min(this.debut.getX(), this.fin.getX());
+        return Math.min(this.getDebut().getX(), this.getFin().getX());
     }
     
     public double maxY(){
-        return Math.max(this.debut.getY(), this.fin.getY());
+        return Math.max(this.getDebut().getY(), this.getFin().getY());
     }
     
     public double minY(){
-        return Math.min(this.debut.getY(), this.fin.getY());
+        return Math.min(this.getDebut().getY(), this.getFin().getY());
     }
 
     /**
@@ -128,6 +128,13 @@ public class Mur {
     public Revetement getRevetement(){
         return this.revetement;
     }
+    
+    /**
+     * @return the listeRevetement
+     */
+    /*public ArrayList<Revetement> getListeRevetement() {
+        return listeRevetement;
+    }*/
     
 }
    
