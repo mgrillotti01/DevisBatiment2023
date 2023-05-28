@@ -10,15 +10,16 @@ import java.util.ArrayList;
  */
 public abstract class Batiment {
     
-    int idBatiment;
+    String idBatiment;
     
-    Batiment(int id){
-        this.idBatiment = id;
+    Batiment(String identifiant){
+        this.idBatiment = identifiant;
    
     }
     
     public abstract double surfaceTotale();   
     
+    //A FAIRE
     public double surfaceRevetement(){
         return 0.0;
     }
