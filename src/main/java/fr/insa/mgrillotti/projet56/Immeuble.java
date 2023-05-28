@@ -14,16 +14,16 @@ class Immeuble extends Batiment{
     
     private ArrayList<Niveau> listeNiveaux = new ArrayList<>();
         
-    public Immeuble(int id){
+    public Immeuble(String identifiant){
         
-        super(id);
+        super(identifiant);
         
         System.out.println(" Identifiant du Niveau (de 0 à 4 inclus)");
-        id=Lire.i();
-        if ((id >4) || (id <0)){
+        int idNiveau=Lire.i();
+        if ((idNiveau >4) || (idNiveau <0)){
             System.out.println("Le niveau doit être 0, 1, 2, 3 ou 4");
         }else{
-            Niveau niveau = new Niveau(id);
+            Niveau niveau = new Niveau(idNiveau);
             this.addNiveau(niveau);
         
         }
