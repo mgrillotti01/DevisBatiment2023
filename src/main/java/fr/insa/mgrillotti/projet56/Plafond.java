@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package fr.insa.mgrillotti.projet56;
+import java.awt.Color;
 import java.util.ArrayList;
 /**
  *
@@ -10,9 +11,10 @@ import java.util.ArrayList;
  */
 public class Plafond {
     
-    int idPlafond;
-    ArrayList<Coin> listeCoins = new ArrayList<>();
-    Revetement revetement;
+    private Color couleur = Color.BLACK;
+    private int idPlafond;
+    private ArrayList<Coin> listeCoins = new ArrayList<>();
+    private Revetement revetement;
     
     Plafond(int id, ArrayList<Coin> listeCoins, Revetement revetement)
     {
@@ -23,18 +25,46 @@ public class Plafond {
     
     double longueur(Coin e, Coin c)
     {
-        return(Math.sqrt((e.cx-c.cx)*(e.cx-c.cx) + (e.cy-c.cy)*(e.cy-c.cy)));
+        return(Math.sqrt((e.getX()-c.getX())*(e.getX()-c.getX()) + (e.getY()-c.getY())*(e.getY()-c.getY())));
     }
     
     double surface()
     {
-        return(longueur(this.listeCoins.get(1),this.listeCoins.get(2))*longueur(this.listeCoins.get(2),this.listeCoins.get(3)));
+        return(longueur(this.getListeCoins().get(1),this.getListeCoins().get(2))*longueur(this.getListeCoins().get(2),this.getListeCoins().get(3)));
     }
     
     @Override
     public String toString() {
-        return "Sol{" + "idPlafond=" + idPlafond + ", listeCoins=" + listeCoins + ", Revetement="+ revetement + '}';
+        return "Sol{" + "idPlafond=" + getIdPlafond() + ", listeCoins=" + getListeCoins() + ", Revetement="+ getRevetement() + '}';
     }
+    
+    /**
+     * @return the couleur
+     */
+    public Color getCouleur() {
+        return couleur;
+    }
+
+    /**
+     * @return the idPlafond
+     */
+    public int getIdPlafond() {
+        return idPlafond;
+    }
+
+    /**
+     * @return the listeCoins
+     */
+    public ArrayList<Coin> getListeCoins() {
+        return listeCoins;
+    }
+
+    /**
+     * @return the listeRevetements
+     */
+    /*public ArrayList<Revetement> getListeRevetements() {
+        return listeRevetements;
+    }*/
     
     public Revetement getRevetement(){
         return this.revetement;
