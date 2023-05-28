@@ -15,33 +15,6 @@ import java.util.ArrayList;
 public class Projet56 {
 
     public static void main(String[] args) {
-        
-        
-        
-        /*System.out.println("0 pour créer une maison, 1 pour créer un immeuble");
-        int i=Lire.i();
-        Batiment batiment;
-            
-        if (i==0){
-            System.out.println(" Identifiant de la Maison");
-            int idMaison=Lire.i();
-            double hauteur = 3;
-            Maison maison = new Maison(idMaison, hauteur);
-            Coin coin = new Coin(0, 0.0, 0.0);
-            maison.addPiece(new Piece(0, coin, 3.0, 3.0, 3.0, listeRevetements ));
-            batiment = maison;
-
-        }else{
-            System.out.println(" Identifiant de l'immeuble");
-            int idImmeuble=Lire.i();
-            Coin coin = new Coin(0, 0.0, 0.0);
-            Immeuble immeuble = new Immeuble(idImmeuble);
-            immeuble.getNiveau(0).getListeApparts().get(0).addPiece(new Piece(0, coin, 3.0, 3.0, 3.0, listeRevetements ));
-            batiment = immeuble;
-        }
-        
-        double surfaceTotale = batiment.surfaceTotale();
-        System.out.println("Surface totale :" + surfaceTotale);*/
         Menu();
     }
     
@@ -50,15 +23,20 @@ public class Projet56 {
         
         //liste de tous les revetements qui existent
         ArrayList<Revetement> listeRevetements = new ArrayList<>();
-        listeRevetements.add(new Revetement (1, "peinture", true, true, true, 30));
+        //A AMELIORER PLUS TARD
+        listeRevetements.add(new Revetement(1));
         
-        System.out.println("Souhaitez-vous calculer le devis d'un Immeuble ou d'une Maison ?");
+        System.out.println("Souhaitez-vous calculer le devis d'un Immeuble ou d'une Maison ? (écrivez immeuble ou maison)");
         String bat = Lire.S();
         Batiment batiment;
         if (! bat.equals("Maison") && (! bat.equals("maison"))){
-            batiment = new Immeuble(0);
+            System.out.println("Donnez un nom à l'immeuble");
+            String idImmeuble=Lire.S();
+            batiment = new Immeuble(idImmeuble);
         }else{
-            batiment = new Maison(0);
+            System.out.println("Donnez un nom à la maison");
+            String idMaison=Lire.S();
+            batiment = new Maison(idMaison);
         }
         int selection = 0;
         while (selection != -1){
