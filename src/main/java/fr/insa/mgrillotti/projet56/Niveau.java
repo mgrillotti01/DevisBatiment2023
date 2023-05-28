@@ -74,7 +74,6 @@ public class Niveau {
         return listeApparts;
     }
     
-    //??
     public void addMur(Appartement appart){
         this.listeApparts.add(appart.getIdAppartement(), appart);
     }
