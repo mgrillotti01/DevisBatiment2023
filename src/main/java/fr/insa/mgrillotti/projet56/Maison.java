@@ -13,10 +13,12 @@ import java.util.ArrayList;
 class Maison extends Batiment{
     private ArrayList<Piece> listePieces = new ArrayList<>();
     private double hauteurSousPlafond;
-     
-    public Maison(int id){
+    private ArrayList<Niveau> listeNiveaux = new ArrayList<>();
+    
+    public Maison(String identifiant){
         
-        super(id);
+        super(identifiant);
+        this.listeNiveaux.isEmpty();
         
         System.out.println(" Hauteur sous plafond de la maison");
         double hauteurSousPlafond=Lire.d();
@@ -28,7 +30,7 @@ class Maison extends Batiment{
         
         this.hauteurSousPlafond = hauteurSousPlafond;
             
-        }
+    }
     
     void afficher(){
     System.out.println("==== Piece =====");
