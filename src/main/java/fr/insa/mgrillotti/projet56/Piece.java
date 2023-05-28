@@ -27,10 +27,10 @@ public class Piece {
         this.idPiece = idPiece;
               
         //coinBD : coinBasDroite
-        //On crée un coin qu'on utlise pour créer ls 3 autres
-        Coin coinBD = new Coin(coinBG.getID()+1, coinBG.getX()+longueurX, coinBG.getY()) ; 
-        Coin coinHG = new Coin(coinBG.getID()+2, coinBG.getX(), coinBG.getY()+longueurY) ; 
-        Coin coinHD = new Coin(coinBG.getID()+3, coinBG.getX()+longueurX, coinBG.getY()+longueurY) ; 
+        //On crée un coin qu'on utlise pour créer les 3 autres
+        Coin coinBD = new Coin(coinBG.getIdCoin()+1, coinBG.getX()+longueurX, coinBG.getY()) ; 
+        Coin coinHG = new Coin(coinBG.getIdCoin()+2, coinBG.getX(), coinBG.getY()+longueurY) ; 
+        Coin coinHD = new Coin(coinBG.getIdCoin()+3, coinBG.getX()+longueurX, coinBG.getY()+longueurY) ; 
        
         ArrayList<Coin> listeCoins = new ArrayList<>();
         listeCoins.add(coinBG);
@@ -110,7 +110,7 @@ public class Piece {
     
     double surfaceRevetement(int idRevetement, double hauteurSousPlafond){
     
-        //pouur chercher la surface totale occupée par un revêtement dans une pièce
+        //pour chercher la surface totale occupée par un revêtement dans une pièce
         double surface = 0;
         if(idRevetement == this.sol.getRevetement().idRevetement){
             surface = surface + this.sol.surface();
@@ -135,13 +135,8 @@ public class Piece {
         return "à faire";//A REMPLIR
     }
     
+    public void addMur(Mur mur){
+        this.listeMurs.add(mur.getIdMur(), mur);
+    }
     
 }
-
-
- /*    System.out.println(" Identifiant du Coin");
-        int id=Lire.i();
-        System.out.println(" Abscisse du Coin");
-        double x=Lire.d();
-        System.out.println(" Ordonnée du Coin"); 
-        double y=Lire.d();*/
